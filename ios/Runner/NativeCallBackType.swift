@@ -46,7 +46,10 @@ class OpenContactsView: NativeCallBackBase, NativeCallBackDelegate {
     }
 
     func nativeProcedure(_ call: FlutterMethodCall, _ result: FlutterResult) {
-        print("\(String(describing: Self.self))::\(#function)@\(#line)")
+        print("\(String(describing: Self.self))::\(#function)@\(#line)"
+            + "\ncall.method: \(call.method)"
+            + "\ncall.arguments: \(call.arguments ?? "n/a")"
+        )
         let flutterRootVC = flutterRootVC
         let contactVC = CNContactViewController(forNewContact: nil)
         contactVC.delegate = self
